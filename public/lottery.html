@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel='shortcut icon' href='./dollar-favicon.ico' type='image/x-icon'/ >
+	<link rel = "stylesheet" href ="lotto-style.css"/>
+	<script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+	<meta charset="UTF-8">
+	<title>Lottery</title>
+</head>
+<body>
+	<h1 align = center>Welcome to the Lotto!</h1>
+		<h2 align = center>Test Your Luck Below</h2>
+			<h3 align = center>Choose Four Numbers Between 1 and 10</h3>
+				<h4 align = center>$2 Per Play</h4>
+	<div id = "userNums">
+			<input class = "user" id="userNum1" type = "text" maxlength="2"/>
+			<input class = "user" id="userNum2" type = "text" maxlength="2"/>
+			<input class = "user" id="userNum3" type = "text" maxlength="2"/>
+			<input class = "user" id="userNum4" type = "text" maxlength="2"/>
+	</div>
+	<div id = "spinButton">
+		<button id = "spinLotto">SPIN!</button>
+	</div>
+	<h3 align = center>Lottery Numbers</h3>
+	<div id ="randNumbers">
+		<table class= "centered">
+			<tr>
+				<td class = "random" id = "randomNum1"></td>
+				<td class = "random" id = "randomNum2"></td>
+				<td class = "random" id = "randomNum3"></td>
+				<td class = "random" id = "randomNum4"></td>
+			</tr>
+		</table>
+	</div>
+	<h3 align = center>Your Money</h3>
+	<div id = "userMoney" align = "center"></div>
+	<div id = "message" align = "center"></div>
+
+	<script>
+
+	//Set up global array variables
+
+	var ranArray = [];
+
+	var userTicket = [];
+
+	//Set user money, print to page
+
+	var userMons = 10;
+	document.getElementById("userMoney").innerHTML = "$" + userMons;
+
+	//Attach button click listener
+	document.getElementById("spinLotto").addEventListener("click", clearArray);
+
+	//Clear arrays to allow for multiple spins
+	function clearArray(){
+		ranArray = [];
+		userTicket = [];
+		userNumbers();
+	}
+
+	//Pull user numbers, store in array
+	function userNumbers(){
+	var usernum1 = parseInt($('#userNum1').val());
+	var usernum2 = parseInt($('#userNum2').val());
+	var usernum3 = parseInt($('#userNum3').val());
+	var usernum4 = parseInt($('#userNum4').val());
+	var firstUserTicket = [usernum1, usernum2, usernum3, usernum4];
+		firstUserTicket.sort();
+		for(var i = 0; i <firstUserTicket.length; i++){
+			//Push user values to new array if conditions are met, else error
+			if(firstUserTicket[i] <= 10 && firstUserTicket[i] != firstUserTicket[i-1]) {
+				userTicket.push(firstUserTicket[i]);
+			} else {
+				document.getElementById("message").innerHTML = "Enter a distinct number between 1 and 10";
+				break;
+			}
+		}
+		//Move on with the lotto draw
+			if(userTicket.length === 4){
+				getRandom();
+			}
+	}
+
+	//Generate random numbers
+	function getRandom(){
+		var rand = Math.floor(Math.random() * 10) + 1;
+		newRand(rand);
+	}
+
+	//Check random number calls for duplicates, push to array, print to page
+	function newRand(num){
+		if(ranArray.indexOf(num) === -1){
+			ranArray.push(num);
+		}
+		if(ranArray.length === 4){
+			//Print numbers to page
+			document.getElementById("randomNum1").innerHTML = ranArray[0];
+			document.getElementById("randomNum2").innerHTML = ranArray[1];
+			document.getElementById("randomNum3").innerHTML = ranArray[2];
+			document.getElementById("randomNum4").innerHTML = ranArray[3];
+			//Run comparison function
+			compareTickets(ranArray, userTicket);
+		} else {
+			//Get a new distinct random number
+			getRandom();
+		}
+	}
+
+	//Compare user and random arrays, increment and decrement user money, display appropriate message
+	function compareTickets(arr1,arr2){
+		//Decrement user money by 2 on button click
+		document.getElementById("userMoney").innerHTML = "$" + (userMons -= 2);
+		//Loop through each array to check for matches
+		console.log(ranArray);
+		var count = 0;
+		for(var i = 0; i <ranArray.length; i++){
+			for(var j = 0; j <userTicket.length;j++) {
+				if(ranArray[i] === userTicket[j]){
+					count++;
+				}
+			}
+		}
+		//Payout amounts indexed in array
+		var payout = [0,0,4,8,40];
+		document.getElementById("userMoney").innerHTML = "$" + (userMons += payout[count]);
+
+			if(payout[count] === 4){
+				document.getElementById("message").innerHTML = "You won $4!";
+			} else if (payout[count] === 8){
+				document.getElementById("message").innerHTML = "You won $8!";
+			} else if (payout[count] === 40){
+				document.getElementById("message").innerHTML = "WOW! You won $40!";
+			} else {
+				document.getElementById("message").innerHTML = "Sorry! Spin again";
+			}
+			if(userMons <= 0){
+				document.getElementById("userMoney").innerHTML = "Refresh the page!";
+		}
+	}
+
+	</script>
+</body>
+</html>

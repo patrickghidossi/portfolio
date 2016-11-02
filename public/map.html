@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PokéTrack</title>
+	<link rel ="stylesheet" href="pokestyles.css">
+	<script
+		src="https://code.jquery.com/jquery-3.1.0.min.js"
+		integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
+		crossorigin="anonymous"
+	></script>
+	<script>
+
+	function showAllPokemon() {
+		console.log("showing Pokemon");
+		$.get(
+			'/api/sighting',
+			function(data){
+				$('#output').html("");
+				for (var i = 0; i < data.length; i++) {
+					$('#output').append(
+						'<p>' + data[i].pokemonId + " " + data[i].locStr + '</p>'
+					);
+				}
+			},
+			'json'
+		);
+	}
+
+	function sendPokemon() {
+		console.log("sending Pokemon");
+		$.post(
+			'/api/sighting', 
+			{
+				locStr: $('#locStr').val(),
+				pokemonId: $('#pokemonId').val()
+			}, //req.body object
+			function(data){
+				if (data == "success") {
+					showAllPokemon();
+				}
+			} //callback function
+		);
+	}
+
+	function displayPokemon() {
+		console.log("displaying Pokemon");
+		$.get(
+			"/api/sighting/id/" + $('#search').val(),
+			function(data){
+				console.log(data, "i'm here");
+			//handle the data it returns
+				$('#output').html("");
+				for (var i = 0; i < data.length; i++) {
+					$('#output').append(
+						'<p>' + data[i].pokemonId + " " + data[i].locStr + '</p>'
+					);
+				}
+			},
+			'json'
+		);
+	}
+
+	function logOut(){
+	$.post('/api/login',
+		function (data){
+			window.location.href = "login.html";
+		}
+	);
+}
+
+	$(document).ready(function() {
+		showAllPokemon();
+		$('#submit').click(sendPokemon);
+		$('#logout').click(logOut);
+		$('#searchPokemon').click(displayPokemon);
+	});
+
+
+	</script>
+</head>
+<body>
+	<label for="locStr">Location: <input type="text" id="locStr"></label>
+	<label for="pokemonId">Pokemon: <input type="text" id="pokemonId"></label>
+	<input type="button" id="submit" value="Send Loc">
+	<label for="search">Search For Pokemon: <input type="text" id="search"></label>
+	<input type="button" id="searchPokemon" value="Search">
+	<input type="button" id="logout" value="Logout">
+	<div id="output"></div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+body {
+	background-image:
+	linear-gradient(
+	  to right,
+      #34B7FF, #26B6E8);
+}
+
+#spinLotto {
+	display: block;
+	background-image: linear-gradient(#E9FBFF, #FFE8F4);
+	border-radius: 8px;
+	font-size: 24px;
+	padding : 16px;
+	font-family: Arial;
+	margin: auto;
+
+}
+
+#spinLotto:hover{
+	background-image: linear-gradient(#33FF43, #21E833)
+}
+
+#spinButton{
+	padding-top: 16px;
+}
+
+h1,h2,h3,h4{
+	font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
+	color : black;
+}
+
+#userNums{
+	text-align: center;
+}
+
+input[type="text"]
+{
+	font-size:36px;
+}
+
+.user {
+	text-align: center;
+	border: 4px solid green;
+	height: 36px;
+	font-size: 36 px;
+	font-family : "Rockwell Extra Bold", "Rockwell Bold", monospace;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 6px;
+	margin-bottom: 6px;
+}
+
+.random {
+	background: white;
+	border: 4px solid green;
+	height: 24px;
+	width: 130px;
+	font-size: 36px;
+	text-align: center;
+	font-family : "Rockwell Extra Bold", "Rockwell Bold", monospace;
+}
+
+
+.centered {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#userMoney {
+	background: white;
+	border: 4px solid green;
+	height: 46px;
+	font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
+	font-size: 36px;
+	margin-top: 16px;
+	margin-bottom: 16px;
+	margin-right: auto;
+	margin-left: auto;
+	word-wrap: break-word;
+}
+ #message {
+	background: white;
+	border: 4px solid green;
+	height: 46px;
+	font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
+	font-size: 36px;
+	margin-top: 16px;
+	margin-bottom: 16px;
+	word-wrap: break-word;
+}

@@ -1,0 +1,88 @@
+.bg-1 {
+  font-family: 'Catamaran', sans-serif;
+  background-color: #3AAF85;
+  color: #FFFFFF;
+}
+
+.bg-2 {
+  font-family: 'Catamaran', sans-serif;
+  background-color: #FFFFFF;
+}
+
+.bg-3 {
+  font-family: 'Catamaran', sans-serif;
+  background-color: #CCCED1;
+}
+
+.bg-4 {
+  font-family: 'Catamaran', sans-serif;
+  background-color: #4A4A4A;
+  color: #FFFFFF;
+}
+
+.navbar {
+  margin-bottom: 0 !important;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 0;
+  border-radius: 0;
+  font-size: 14px;
+  letter-spacing: 5px;
+}
+
+.navbar-nav li a:hover {
+    color: #3AAF85 !important;
+}
+
+.container-fluid {
+  margin-top: 0;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.margin {
+  margin-bottom: 45px;
+}
+
+.me {
+  border-radius: 10px;
+  border: 2px solid #8D948F;
+}
+
+.project {
+  border-radius: 10px;
+  border: 2px solid #8D948F;
+}
+
+.project-link {
+  font-family: 'Catamaran', sans-serif;
+  color: black;
+}
+
+.project-link:hover {
+  color: black;
+}
+
+#forecaddie {
+  font-family: 'Carter One', cursive;
+  font-size: 16px;
+}
+
+#pong {
+  font-family: 'Inconsolata', monospace;
+  font-size: 16px;
+}
+
+#lotto {
+  font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
+  font-size: 16px;
+}
+
+.footer-link {
+  font-family: 'Catamaran', sans-serif;
+  color: #FFFFFF;
+}
+
+.footer-link:hover {
+  color: #FFFFFF;
+}
