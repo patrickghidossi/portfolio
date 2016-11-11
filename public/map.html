@@ -2,12 +2,25 @@
 <html>
 <head>
 	<title>PokéTrack</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel ="stylesheet" href="pokestyles.css">
-	<script
-		src="https://code.jquery.com/jquery-3.1.0.min.js"
-		integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
-		crossorigin="anonymous"
-	></script>
+	<link rel='shortcut icon' href='./pokeball-favicon.ico' type='image/x-icon'/ >
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="map-body"
+		<div class="container-fluid">
+			<label for="locStr">Location: <input type="text" id="locStr"></label>
+			<label for="pokemonId">Pokemon: <input type="text" id="pokemonId"></label>
+			<input type="button" id="submit" value="Send Loc">
+			<label for="search">Search For Pokemon: <input type="text" id="search"></label>
+			<input type="button" id="searchPokemon" value="Search">
+			<input type="button" id="logout" value="Logout">
+			<div id="output"></div>
+		</div>
+	</div>
+
 	<script>
 
 	function showAllPokemon() {
@@ -29,7 +42,7 @@
 	function sendPokemon() {
 		console.log("sending Pokemon");
 		$.post(
-			'/api/sighting', 
+			'/api/sighting',
 			{
 				locStr: $('#locStr').val(),
 				pokemonId: $('#pokemonId').val()
@@ -77,14 +90,5 @@
 
 
 	</script>
-</head>
-<body>
-	<label for="locStr">Location: <input type="text" id="locStr"></label>
-	<label for="pokemonId">Pokemon: <input type="text" id="pokemonId"></label>
-	<input type="button" id="submit" value="Send Loc">
-	<label for="search">Search For Pokemon: <input type="text" id="search"></label>
-	<input type="button" id="searchPokemon" value="Search">
-	<input type="button" id="logout" value="Logout">
-	<div id="output"></div>
 </body>
 </html>

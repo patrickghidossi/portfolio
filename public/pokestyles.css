@@ -1,0 +1,41 @@
+.splash-body {
+  background-image: url("pikachu-background.jpg");
+  height: 100vh;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-color: #F6E652;
+}
+.splash-title {
+  display: block;
+  margin-left: auto;
+  margin-right: 45%;
+}
+.splash-description {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 24px;
+}
+.splash-link {
+  text-align: center;
+}
+
+/* Login Styles */
+
+.login-body {
+  background-image: url("squirtle-background.jpg");
+  height: 100vh;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-color: #8CC5D0;
+}
+
+
+/* Map Styles */
+
+.map-body {
+  background-image: url("map-background.jpg");
+  height: 100vh;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-color: #E7E8DF;
+}
