@@ -7,6 +7,7 @@ var sightings = [];
 
 
 var PORT = process.env.port || 3000;
+console.log(PORT);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

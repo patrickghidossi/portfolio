@@ -19,6 +19,12 @@
   text-align: center;
 }
 
+#description {
+  font-family: 'Baloo Bhaina', cursive;
+  font-size: 30px;
+  padding-top: 30px;
+}
+
 /* Login Styles */
 
 .login-body {
