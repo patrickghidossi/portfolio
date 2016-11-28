@@ -12,8 +12,6 @@ console.log(PORT);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(express.static("public"));
-
 app.use(function(req, res, next) {
 	console.log(req.url);
 	next();
@@ -34,6 +32,8 @@ addAPIRoutes(app, sightings);
 app.get("/", function(req, res) {
 	res.sendFile(__dirname + "/index.html");
 });
+
+app.use(express.static("public"));
 
 app.use(function(req, res, next) {
 	res.status(404);
