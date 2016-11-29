@@ -6,8 +6,8 @@ var app = express();
 var sightings = [];
 
 
-var PORT = process.env.port || 3000;
-console.log(PORT);
+var port = process.env.PORT || 3000;
+console.log(port);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -40,6 +40,6 @@ app.use(function(req, res, next) {
 	res.send("It's not very effective");
 });
 
-app.listen(PORT, function() {
-  console.log("Get money on Port " + PORT);
+app.listen(port, function() {
+  console.log("Get money on Port " + port);
 });
