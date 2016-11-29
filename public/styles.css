@@ -49,6 +49,10 @@
   border: 2px solid #8D948F;
 }
 
+#about {
+  font-size: 20px;
+}
+
 .project {
   border-radius: 10px;
   border: 2px solid #8D948F;
@@ -101,4 +105,5 @@
 .contact {
   font-family: 'Catamaran', sans-serif;
   font-size: 24px;
+  margin-left: 150px;
 }
