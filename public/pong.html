@@ -95,15 +95,16 @@
 
 	//Start game
 	function play() {
-		//Paddle 1 Movement
+		//Paddle 1 PLayer Movement
 		function onMouseMove(evt) {
 			paddle_1_model.y = evt.pageY - evt.target.offsetTop - 50;
 		}
 
-		//Paddle 2 Movement
+		//Paddle 2 Player Movement
 		function onKeyDown() {
 
 		}
+		
 		//Update
 		function update(){
 
@@ -143,7 +144,7 @@
 					 ball_model.vx = ball_model.vx * -1;
 			}
 
-			//Paddle 2 Movement
+			//Paddle 2 Automated Movement
 			if(paddle_2_model.y > 600-80 && paddle_2_model.vy > 0){
 				paddle_2_model.vy = paddle_2_model.vy  * -1;
 			}else if(paddle_2_model.y < -20 && paddle_2_model.vy < 0){
