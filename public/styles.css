@@ -106,5 +106,9 @@
 .contact {
   font-family: 'Catamaran', sans-serif;
   font-size: 24px;
-  margin-left: 150px;
+}
+
+.contact-img {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
